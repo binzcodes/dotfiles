@@ -1,0 +1,40 @@
+[user]
+	name = Ryan Binns
+	email = r@rbi.nz
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[alias]
+    cm = commit -m 
+    cam = commit -am
+    amend = commit --amend --no-edit
+    lo = log --pretty=format:'%an - %h %s %ar'
+    st = status
+    br = branch
+    sw = show
+    df = diff
+    fe = fetch
+    mg = merge
+    rb = rebase
+    rt = remote -v
+    co = checkout
+    po = push origin
+    pu = pull origin
+    pom = push origin master
+    pum = pull origin master
+    com = checkout master
+    rbom = rebase origin master
+    pod = push origin develop
+    pud = pull origin develop
+    cod = checkout develop
+    pog = push origin gh-pages
+    pug = pull origin gh-pages
+    cog = checkout gh-pages
+    hist = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+[sequence]
+	editor = code --wait
