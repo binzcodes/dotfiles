@@ -10,36 +10,37 @@
 	helper = 
 	helper = !/usr/bin/gh auth git-credential
 [alias]
-    cm = commit -m 
-    cam = commit -am
-    cane = commit --amend --no-edit
-    lo = log --pretty=format:'%an - %h %s %ar'
-    st = status
-    br = branch
-    sw = show
-    df = diff
-    fe = fetch
-    mg = merge
-    rb = rebase
-    rom = rebase origin/master
-    rt = remote -v
-    co = checkout
-    pf = push -f
-    po = push origin
-    pu = pull origin
-    pom = push origin master
-    pum = pull origin master
-    com = checkout master
-    pod = push origin develop
-    pud = pull origin develop
-    cod = checkout develop
-    pog = push origin gh-pages
-    pug = pull origin gh-pages
-    cog = checkout gh-pages
-    hist = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-    undo = reset --soft HEAD~1
-    graph = log --oneline --graph
-    rmfile = reset HEAD^ --
-    beupstream = reset --hard @{upstream}
+	cm = commit -m 
+	cam = commit -am
+	cane = commit --amend --no-edit
+	lo = log --pretty=format:'%an - %h %s %ar'
+	st = status
+	br = branch
+	sw = show
+	df = diff
+	fe = fetch
+	mg = merge
+	rb = rebase
+	rom = rebase origin/master
+	rt = remote -v
+	co = checkout
+	pf = push -f
+	po = push origin
+	pu = pull origin
+	pom = push origin master
+	pum = pull origin master
+	com = checkout master
+	pod = push origin develop
+	pud = pull origin develop
+	cod = checkout develop
+	pog = push origin gh-pages
+	pug = pull origin gh-pages
+	cog = checkout gh-pages
+	hist = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+	undo = reset --soft HEAD~1
+	graph = log --oneline --graph
+	rmfile = reset HEAD^ --
+	beupstream = reset --hard @{upstream}
+	frompf = !"git fetch && git rebase origin/master && git push -f"
 [sequence]
 	editor = code --wait
