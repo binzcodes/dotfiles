@@ -41,6 +41,17 @@
 	graph = log --oneline --graph
 	rmfile = reset HEAD^ --
 	beupstream = reset --hard @{upstream}
+	beup = beupstream
 	frompf = !"git fetch && git rebase origin/master && git push -f"
+	# commits since last command
+	new = !sh -c 'git log $1@{1}..$1@{0} "$@"'	
+	# rebase branch popping off comits up to HEAD~N
+	pop = "!f() { git rebase --onto origin/master $2~$1 $2; }; f" 
+	# cleanup merged branches
+	bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs -r git branch -d; }; f"
+	# add a subtree
+	sta = "!f() { git subtree add --prefix $2 $1 master --squash; }; f"
+	# simple diff ignoring line number changes
+	sortdiff = !sh -c 'git diff "$@" | grep "^[+-]" | sort --key=1.2 | uniq -u -s1'
 [sequence]
 	editor = code --wait
