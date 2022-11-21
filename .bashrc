@@ -132,3 +132,11 @@ shopt -s globstar
 
 # add Pulumi to the PATH
 export PATH=$PATH:$HOME/.pulumi/bin
+
+# Add local bin to the PATH for pip
+export PATH="$HOME/.local/bin:$PATH"
+
+# Add command completion for aws command
+complete -C '/usr/local/bin/aws_completer' aws
+# support localstack awslocal 
+complete -C '/usr/local/bin/aws_completer' awslocal
