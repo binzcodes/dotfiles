@@ -53,5 +53,9 @@
 	sta = "!f() { git subtree add --prefix $2 $1 master --squash; }; f"
 	# simple diff ignoring line number changes
 	sortdiff = !sh -c 'git diff "$@" | grep "^[+-]" | sort --key=1.2 | uniq -u -s1'
+	frompf = !"git fetch && git rebase origin/master && git push -f"
+	pop = "!f() { git rebase --onto origin/master $2~$1 $2; }; f" 
+	bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}
 [sequence]
 	editor = code --wait
+
