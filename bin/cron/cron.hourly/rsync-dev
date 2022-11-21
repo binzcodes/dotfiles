@@ -1,0 +1,3 @@
+#!/bin/bash
+! mountpoint -q /media/binz/backup/ || rsync -aAXv ~/dev --exclude=node_modules /media/binz/backup/rsync/dev --delete
+

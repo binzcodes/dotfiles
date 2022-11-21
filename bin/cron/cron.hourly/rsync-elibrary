@@ -1,0 +1,2 @@
+#!/bin/bash
+! mountpoint -q /media/binz/backup/ || rsync -avz --progress ./ /media/binz/backup/elibrary/ --delete
