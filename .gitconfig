@@ -1,3 +1,12 @@
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[user]
+	email = r@rbi.nz
+	name = Ryan Binns
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -16,6 +25,8 @@
 	mg = merge
 	rb = rebase
 	rom = rebase origin/master
+	romaster = rebase origin/master
+	romain = rebase origin/main
 	rt = remote -v
 	co = checkout
 	pf = push -f
@@ -50,6 +61,7 @@
 	frompf = !"git fetch && git rebase origin/master && git push -f"
 	pop = "!f() { git rebase --onto origin/master $2~$1 $2; }; f" 
 	bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}
+	stash-staged = "!bash -c \"git stash --keep-index; git stash push -m \"staged\" --keep-index; git stash pop stash@{1}\""
 [sequence]
 	editor = code --wait
 
