@@ -62,6 +62,8 @@
 	pop = "!f() { git rebase --onto origin/master $2~$1 $2; }; f" 
 	bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}
 	stash-staged = "!bash -c \"git stash --keep-index; git stash push -m \"staged\" --keep-index; git stash pop stash@{1}\""
+	# print lines of code in files and repo
+	loc = ls-files | xargs wc -l
 [sequence]
 	editor = code --wait
 
