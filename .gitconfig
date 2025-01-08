@@ -61,6 +61,9 @@
 	stash-staged = "!bash -c \"git stash --keep-index; git stash push -m \"staged\" --keep-index; git stash pop stash@{1}\""
 	# print lines of code in files and repo
 	loc = ls-files | xargs wc -l
+	ignore = update-index --assume-unchanged
+	unignore = update-index --no-assume-unchanged
+	ignored = !git ls-files -v | grep "^[[:lower:]]"
 [sequence]
 	editor = code --wait
 
